@@ -1,12 +1,9 @@
-export async function generateCharacter(): Promise<any> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        name: "John Doe",
-        age: 30,
-        occupation: "Warrior",
-        skills: ["swordsmanship", "archery", "tactics"],
-      });
-    }, 1000);
-  });
+"use server";
+
+import { CharacterIdea } from "@/types/CharacterIdea";
+import generateCharacterIdea from "./ai/generate-character-idea";
+
+export async function generateCharacter(): Promise<CharacterIdea> {
+  return await generateCharacterIdea();
 }
+
