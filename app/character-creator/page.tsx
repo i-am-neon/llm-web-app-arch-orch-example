@@ -4,47 +4,9 @@ import Image from "next/image";
 import { useCallback, useState } from "react";
 import { generateCharacter } from "./actions";
 
-const STUB: Character = {
-  name: "Lyra Moonshadow",
-  gender: "female",
-  race: "Elf",
-  class: "Rogue",
-  personality: ["cunning", "mysterious", "resourceful"],
-  age: "young adult",
-  backstory:
-    "Lyra grew up in the shadowy streets of a bustling city, where she learned to navigate the underbelly of society. Once a street urchin, she discovered her knack for stealth and trickery, carving out a living as a skilled thief and information broker.",
-  physicalDescription: {
-    eyeColor: "silver",
-    hairColor: "dark blue",
-    facialFeatures: "sharp cheekbones and a playful smirk",
-    height: "5'6",
-    build: "slim",
-    clothing:
-      "a dark leather armor adorned with silver patterns, a cloak that blends into the night, and fingerless gloves.",
-  },
-  startingInventory: {
-    items: [
-      {
-        name: "Dagger",
-        quantity: 2,
-      },
-      {
-        name: "Lockpicks",
-        quantity: 1,
-      },
-      {
-        name: "Smoke Bombs",
-        quantity: 3,
-      },
-    ],
-  },
-  portraitImageUrl:
-    "https://replicate.delivery/xezq/eemk6WuLRVtpRExvOV6dAXAsbf4TyBXIFUAmfEdmepvDWS4dC/out-0.jpg",
-};
-
 export default function CharacterCreatorPage() {
   const [isLoading, setIsLoading] = useState(false);
-  const [character, setCharacter] = useState<Character>(STUB);
+  const [character, setCharacter] = useState<Character>(STUB_CHARACTER);
 
   const createCharacter = useCallback(async () => {
     setIsLoading(true);
@@ -57,7 +19,7 @@ export default function CharacterCreatorPage() {
   }, []);
 
   return (
-    <div className="max-h-screen max-w-4xl mx-auto mt-2">
+    <div className="max-h-screen max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
       <div className="text-center mb-8">
         <h1 className="text-5xl font-bold">Character Creator</h1>
         <p className="text-lg mb-6">
@@ -114,4 +76,43 @@ export default function CharacterCreatorPage() {
     </div>
   );
 }
+
+const STUB_CHARACTER: Character = {
+  name: "Kaelith Moonshadow",
+  gender: "other",
+  race: "Tiefling",
+  class: "Sorcerer",
+  personality: ["mysterious", "intelligent", "playful"],
+  age: "young adult",
+  backstory:
+    "Born under a lunar eclipse with latent magical abilities, Kaelith grew up in a secluded village, often feeling disconnected from others due to being a Tiefling. After discovering his talent for sorcery, he ventured out to learn more about his powers and the world beyond his village, seeking knowledge and adventure.",
+  physicalDescription: {
+    eyeColor: "silver",
+    hairColor: "deep purple",
+    facialFeatures:
+      "distinctive horns that curve back, rare celestial tattoos on his arms",
+    height: "5'8",
+    build: "slim",
+    clothing:
+      "flowing robes adorned with constellations, a slender silver necklace with a moon pendant, and a dark hooded cloak.",
+  },
+  startingInventory: {
+    items: [
+      {
+        name: "Spellbook",
+        quantity: 1,
+      },
+      {
+        name: "Arcane Focus (Crystal Orb)",
+        quantity: 1,
+      },
+      {
+        name: "Potion of Healing",
+        quantity: 2,
+      },
+    ],
+  },
+  portraitImageUrl:
+    "https://replicate.delivery/xezq/O9oOpnPuoqJeJC6pEAfE4kkSCfHG7ABVzOxzBDWrhT7NsFeOB/out-0.jpg",
+};
 
