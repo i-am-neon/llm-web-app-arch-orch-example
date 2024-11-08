@@ -1,18 +1,28 @@
-import OpenAI from "openai";
-const openai = new OpenAI();
+import Replicate from "replicate";
+
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+});
 
 export default async function generateImage(prompt: string): Promise<string> {
-  const response = await openai.images.generate({
-    model: "dall-e-3",
-    prompt,
-    n: 1,
-    size: "1024x1024",
+  const prediction = await replicate.predictions.create({
+    model: "black-forest-labs/flux-schnell",
+    input: { prompt, aspect_ratio: "9:16", output_format: "jpg" },
   });
-  const imageUrl = response.data[0].url;
 
-  if (!imageUrl) {
-    throw new Error("Failed to generate image");
+  let result = "";
+  while (result === "") {
+    const check = await replicate.predictions.get(prediction.id);
+    if (check.status === "failed") {
+      throw new Error(JSON.stringify(prediction.error, null, 2));
+    } else if (check.status === "succeeded") {
+      result = check.output;
+    } else {
+      await sleep(250);
+    }
   }
-
-  return imageUrl;
+  return result;
 }
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+

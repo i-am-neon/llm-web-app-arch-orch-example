@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useState } from "react";
-import { generateCharacter } from "./actions";
+import { generateCharacter, generateP } from "./actions";
 
 export default function CharacterCreatorPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,6 +9,7 @@ export default function CharacterCreatorPage() {
     setIsLoading(true);
 
     const character = await generateCharacter();
+    // const character = await generateP();
     console.log("character", JSON.stringify(character, null, 2));
 
     setIsLoading(false);
