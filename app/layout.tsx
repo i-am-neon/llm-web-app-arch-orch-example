@@ -16,7 +16,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "RPG Character Creator",
   description:
-    "An example LLM-powered web app to show the architecture and orchestration.",
+    "An example LLM-powered web app to show architecture and orchestration best practices.",
 };
 
 export default function RootLayout({
