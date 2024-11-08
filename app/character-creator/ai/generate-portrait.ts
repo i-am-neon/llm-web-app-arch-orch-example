@@ -6,8 +6,10 @@ export default async function generatePortraitUrl({
 }: {
   characterIdea: CharacterIdea;
 }): Promise<string> {
-  const prompt = `A full-body, front-facing portrait of a fantasy character in photorealistic style. The character's appearance is based on the following details:
-
+  const prompt = `A full-body, front-facing photorealistic portrait of a Dungeons and Dragons character.
+  
+The character's appearance is based on the following details:
+- **Gender**: ${characterIdea.gender}
 - **Race**: ${characterIdea.race}
 - **Class**: ${characterIdea.class}
 - **Age**: ${characterIdea.age}
@@ -22,6 +24,6 @@ export default async function generatePortraitUrl({
 The character should be standing confidently, with a clear and expressive pose, showing the character's personality and class traits.
 
 The background is a simple scene related to the character.`;
-  return await generateImage(prompt);
+  return await generateImage({ prompt, aspectRatio: "9:16" });
 }
 
