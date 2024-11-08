@@ -16,7 +16,7 @@ export default async function generateImage(prompt: string): Promise<string> {
     if (check.status === "failed") {
       throw new Error(JSON.stringify(prediction.error, null, 2));
     } else if (check.status === "succeeded") {
-      result = check.output;
+      result = check.output[0];
     } else {
       await sleep(250);
     }

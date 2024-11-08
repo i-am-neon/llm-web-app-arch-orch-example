@@ -21,7 +21,7 @@ export default async function generatePortraitUrl({
 
 The character should be standing confidently, with a clear and expressive pose, showing the character's personality and class traits.
 
-The background should be a simple scene related to the character.`;
+The background is a simple scene related to the character.`;
   return await generateImage(prompt);
 }
 
