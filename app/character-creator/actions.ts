@@ -8,14 +8,14 @@ import generateStartingInventory from "./ai/generate-starting-inventory";
 export async function generateCharacter(): Promise<Character> {
   const characterIdea = await generateCharacterIdea();
   // Run in parallel
-  const [startingInventory, portraitUrl] = await Promise.all([
+  const [startingInventory, portraitImageUrl] = await Promise.all([
     generateStartingInventory({ characterIdea }),
     generatePortraitUrl({ characterIdea }),
   ]);
   return {
     ...characterIdea,
     startingInventory,
-    portraitImageUrl: portraitUrl,
+    portraitImageUrl,
   };
 }
 
