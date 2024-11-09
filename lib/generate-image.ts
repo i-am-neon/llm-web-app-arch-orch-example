@@ -29,6 +29,7 @@ export default async function generateImage({
     input: { prompt, aspect_ratio: aspectRatio, output_format: "jpg" },
   });
 
+  // You could return the prediction id and poll for the result in the client, but for simplicity we'll just wait for the result here.
   let result = "";
   while (result === "") {
     const check = await replicate.predictions.get(prediction.id);

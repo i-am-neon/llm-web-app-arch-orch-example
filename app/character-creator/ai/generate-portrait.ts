@@ -24,6 +24,7 @@ The character's appearance is based on the following details:
 The character should be standing confidently, with a clear and expressive pose, showing the character's personality and class traits.
 
 The background is a simple scene related to the character.`;
+
   return await generateImage({ prompt, aspectRatio: "9:16" });
 }
 

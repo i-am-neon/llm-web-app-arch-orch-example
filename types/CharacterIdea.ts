@@ -63,6 +63,7 @@ export const CharacterIdeaSchema = z.object({
     .array(z.string())
     .min(3)
     .max(3)
+    // The AI sees these descriptions, and is great in-line documentation for devs
     .describe("Three words that describe the character's personality"),
   age: z.union([
     z.literal("child"),
