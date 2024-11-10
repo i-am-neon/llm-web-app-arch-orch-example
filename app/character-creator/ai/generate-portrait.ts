@@ -3,15 +3,19 @@ import { CharacterIdea } from "@/types/CharacterIdea";
 
 export default async function generatePortraitUrl({
   characterIdea,
+  race,
+  characterClass,
 }: {
   characterIdea: CharacterIdea;
+  race: string;
+  characterClass: string;
 }): Promise<string> {
   const prompt = `A full-body, front-facing photorealistic portrait of a Dungeons and Dragons character.
   
 The character's appearance is based on the following details:
 - **Gender**: ${characterIdea.gender}
-- **Race**: ${characterIdea.race}
-- **Class**: ${characterIdea.class}
+- **Race**: ${race}
+- **Class**: ${characterClass}
 - **Age**: ${characterIdea.age}
 - **Physical Description**:
   - Eye Color: ${characterIdea.physicalDescription.eyeColor}

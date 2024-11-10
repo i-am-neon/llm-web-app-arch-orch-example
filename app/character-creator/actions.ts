@@ -13,7 +13,7 @@ export async function generateCharacter(): Promise<Character> {
   // Run in parallel
   const [startingInventory, portraitImageUrl] = await Promise.all([
     generateStartingInventory({ characterIdea }),
-    generatePortraitUrl({ characterIdea }),
+    generatePortraitUrl({ characterIdea, race, characterClass }),
   ]);
   return {
     ...characterIdea,
