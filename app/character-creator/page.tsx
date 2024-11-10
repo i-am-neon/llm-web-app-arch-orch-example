@@ -53,7 +53,7 @@ export default function CharacterCreatorPage() {
           </div>
           <div className="w-3/4 pl-4">
             <h2 className="text-4xl">
-              {character.name}, the {character.race} {character.class}
+              {character.name}, the {character.race} {character.characterClass}
             </h2>
             <p>
               <i className="capitalize">{character.personality.join(", ")}</i>
@@ -81,7 +81,7 @@ const STUB_CHARACTER: Character = {
   name: "Kaelith Moonshadow",
   gender: "other",
   race: "Tiefling",
-  class: "Sorcerer",
+  characterClass: "Sorcerer",
   personality: ["mysterious", "intelligent", "playful"],
   age: "young adult",
   backstory:
