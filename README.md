@@ -14,7 +14,16 @@ This is the app to go with "Best Practices for Building LLM-Powered Web Apps"
 
 ![Alt text](./public/app-screenshot.png)
 
-First, run the development server:
+## Getting Started
+
+First, input your API keys in the `.env.local` file:
+
+```text
+OPENAI_API_KEY=
+REPLICATE_API_TOKEN=
+```
+
+Run the development server:
 
 ```bash
 npm run dev
