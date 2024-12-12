@@ -2,8 +2,8 @@
 
 This is the app to go with "Best Practices for Building LLM-Powered Web Apps"
 
-- Watch the [YouTube video](https://www.youtube.com/...)
-- Read the [Medium article](https://medium.com/...)
+- Watch the [YouTube video](https://youtu.be/kRwSYr6L6XY)
+- Read the [Medium article](https://medium.com/@tommywilczek/how-to-architect-llm-powered-web-apps-99e02fa643e9)
 
 ## Topics covered
 
